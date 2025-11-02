@@ -35,7 +35,7 @@ const triggerRipple = () => {
 .site-header {
   background-color: var(--bg-primary);
   padding: 2rem 2rem 1rem 2rem;
-  text-align: left;
+  text-align: center;
 }
 
 .site-title {
@@ -44,7 +44,6 @@ const triggerRipple = () => {
   font-size: 8vw;
   font-weight: 400;
   letter-spacing: 3px;
-  word-spacing: 3rem;
   text-transform: uppercase;
   margin: 0;
   line-height: 1.2;
@@ -94,12 +93,20 @@ const triggerRipple = () => {
   .site-title {
     font-size: 2rem;
   }
+
+  .letter.word-space {
+    padding-right: 0.5rem;
+  }
 }
 
 @media (max-width: 480px) {
   .site-title {
     font-size: 1.5rem;
     letter-spacing: 1px;
+  }
+
+  .letter.word-space {
+    padding-right: 0.3rem;
   }
 }
 </style>
