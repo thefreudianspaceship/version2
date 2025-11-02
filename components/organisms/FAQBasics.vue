@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: 'How does this website work?',
-    answer: 'Originally built on WordPress we noticed we were limited in what we could do. Some conversations with colleagues touched on alternative visions and multiple paths that we wanted to explore. So a while later, and after working with servers and code and much playing with claude code, we moved through Hugo and into Vue and Nuxt via p5.js for fun. So that\'s how the website works, and it means we might be a bit more flexible now - so alternative modes are potentially more viable.'
+    answer: 'Originally built on WordPress we noticed we were limited in what we could do. Some conversations with colleagues touched on alternative visions and multiple paths that we wanted to explore. So a while later, and after working with servers and code and much playing with claude, we moved through Hugo and into Vue and Nuxt via p5.js for fun. So that\'s how the website works, and it means we might be a bit more flexible now - so alternative modes are potentially more viable.'
   }
 ]
 </script>
