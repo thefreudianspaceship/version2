@@ -43,7 +43,7 @@ const faqs = [
 
 <style scoped>
 .faq-basics {
-  background-color: var(--bg-secondary);
+  background-color: #252525;
   padding: 4rem 2rem;
   width: 100%;
 }
