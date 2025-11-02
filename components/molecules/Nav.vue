@@ -4,7 +4,7 @@
     <div class="nav-container">
       <!-- Left Nav Links -->
       <nav class="nav nav-left">
-        <NuxtLink to="/" class="nav-link">BLOG</NuxtLink>
+        <NuxtLink to="/blog" class="nav-link">BLOG</NuxtLink>
         <span class="nav-divider">:</span>
         <NuxtLink to="/podcast" class="nav-link">PODCAST</NuxtLink>
       </nav>
@@ -49,7 +49,7 @@
 
     <!-- Mobile Navigation -->
     <nav v-if="mobileMenuOpen" class="mobile-nav">
-      <NuxtLink to="/" class="mobile-nav-link" @click="closeMobileMenu">
+      <NuxtLink to="/blog" class="mobile-nav-link" @click="closeMobileMenu">
         BLOG
       </NuxtLink>
       <NuxtLink to="/podcast" class="mobile-nav-link" @click="closeMobileMenu">
