@@ -10,6 +10,10 @@ const faqs = [
   {
     question: 'What is this website for?',
     answer: 'Eric Harper and Matt Lee have collaborated on essays and materials exploring the Freudian Spaceship concept. The website serves to broaden their dialogues and involve others in conversation. Their initial focus includes developing the "Conversations about Concepts" podcast and organizing their research materials into an accessible format on the research page.'
+  },
+  {
+    question: 'How does this website work?',
+    answer: 'Originally built on WordPress we noticed we were limited in what we could do. Some conversations with colleagues touched on alternative visions and multiple paths that we wanted to explore. So a while later, and after working with servers and code and much playing with claude code, we moved through Hugo and into Vue and Nuxt via p5.js for fun. So that\'s how the website works, and it means we might be a bit more flexible now - so alternative modes are potentially more viable.'
   }
 ]
 </script>
