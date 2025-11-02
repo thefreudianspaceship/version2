@@ -1,13 +1,18 @@
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import Nav from './components/molecules/Nav.vue'
 import Header from './components/organisms/Header.vue'
+
+const route = useRoute()
+const showHeader = computed(() => route.path === '/')
 </script>
 
 <template>
   <div id="app">
     <NuxtRouteAnnouncer />
     <Nav />
-    <Header />
+    <Header v-if="showHeader" />
     <main>
       <NuxtPage />
     </main>
