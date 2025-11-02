@@ -1,5 +1,6 @@
 <script setup>
 import Orbit from '../atoms/Orbit.vue'
+import CircularImage from '../atoms/CircularImage.vue'
 </script>
 
 <template>
@@ -11,10 +12,10 @@ import Orbit from '../atoms/Orbit.vue'
       :particle-count="1"
       :speed="8"
     >
-      <img
+      <CircularImage
         src="/spaceship-logo.png"
         alt="Freudian Spaceship"
-        class="spaceship-image"
+        size="85%"
       />
     </Orbit>
   </section>
@@ -23,12 +24,5 @@ import Orbit from '../atoms/Orbit.vue'
 <style scoped>
 .spaceship-hero {
   width: 100%;
-}
-
-.spaceship-image {
-  width: 85%;
-  height: 85%;
-  object-fit: cover;
-  border-radius: 50%;
 }
 </style>
