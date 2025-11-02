@@ -1,6 +1,6 @@
 <script setup>
-import SpaceshipHero from '../components/SpaceshipHero.vue'
-import ForNewEarth from '../components/ForNewEarth.vue'
+import SpaceshipHero from '../components/organisms/SpaceshipHero.vue'
+import ForNewEarth from '../components/organisms/ForNewEarth.vue'
 </script>
 
 <template>

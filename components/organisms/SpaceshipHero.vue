@@ -1,5 +1,5 @@
 <script setup>
-import Orbit from './Orbit.vue'
+import Orbit from '../atoms/Orbit.vue'
 </script>
 
 <template>

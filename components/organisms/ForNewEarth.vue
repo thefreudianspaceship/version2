@@ -1,6 +1,6 @@
 <script setup>
 import SectionContainer from './SectionContainer.vue'
-import IconCard from './IconCard.vue'
+import IconCard from '../molecules/IconCard.vue'
 
 // Content for the three cards
 const cards = [

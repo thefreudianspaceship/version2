@@ -1,6 +1,6 @@
 <script setup>
-import Nav from './components/Nav.vue'
-import Header from './components/Header.vue'
+import Nav from './components/molecules/Nav.vue'
+import Header from './components/organisms/Header.vue'
 </script>
 
 <template>
@@ -21,6 +21,7 @@ import Header from './components/Header.vue'
 :root {
   --bg-primary: #141414;
   --bg-secondary: #1a1a1a;
+  --bg-section: #1a1a1a;
   --bg-header: #000000;
   --text-primary: #ADAEAF;
   --text-secondary: #888888;
