@@ -1,24 +1,51 @@
 <template>
   <header class="header">
-    <!-- Navigation -->
-    <nav class="nav">
+    <!-- Desktop Navigation with Centered Logo -->
+    <div class="nav-container">
+      <!-- Left Nav Links -->
+      <nav class="nav nav-left">
         <NuxtLink to="/" class="nav-link">BLOG</NuxtLink>
         <span class="nav-divider">:</span>
         <NuxtLink to="/podcast" class="nav-link">PODCAST</NuxtLink>
-        <span class="nav-divider">:</span>
+      </nav>
+
+      <!-- Centered Logo -->
+      <NuxtLink to="/" class="logo-link">
+        <CircularImage
+          src="/spaceship-logo.png"
+          alt="Freudian Spaceship"
+          size="50px"
+          class="nav-logo"
+        />
+      </NuxtLink>
+
+      <!-- Right Nav Links -->
+      <nav class="nav nav-right">
         <NuxtLink to="/research" class="nav-link">RESEARCH</NuxtLink>
         <span class="nav-divider">:</span>
         <NuxtLink to="/contact" class="nav-link">CONTACT US</NuxtLink>
-    </nav>
+      </nav>
+    </div>
 
-    <!-- Mobile Menu Button -->
-    <button
-      class="mobile-menu-btn"
-      @click="toggleMobileMenu"
-      aria-label="Toggle menu"
-    >
-      <span class="hamburger" :class="{ open: mobileMenuOpen }"></span>
-    </button>
+    <!-- Mobile Menu Button and Logo -->
+    <div class="mobile-header">
+      <button
+        class="mobile-menu-btn"
+        @click="toggleMobileMenu"
+        aria-label="Toggle menu"
+      >
+        <span class="hamburger" :class="{ open: mobileMenuOpen }"></span>
+      </button>
+
+      <NuxtLink to="/" class="mobile-logo-link">
+        <CircularImage
+          src="/spaceship-logo.png"
+          alt="Freudian Spaceship"
+          size="40px"
+          class="mobile-nav-logo"
+        />
+      </NuxtLink>
+    </div>
 
     <!-- Mobile Navigation -->
     <nav v-if="mobileMenuOpen" class="mobile-nav">
@@ -40,6 +67,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import CircularImage from '../atoms/CircularImage.vue'
 
 // Mobile menu state
 const mobileMenuOpen = ref(false)
@@ -56,20 +84,57 @@ function closeMobileMenu() {
 <style scoped>
 .header {
   background-color: var(--bg-header);
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
+/* Desktop Navigation Container */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Individual Nav Sections */
 .nav {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  flex-wrap: wrap;
-  padding-left: 0;
+  flex: 1;
 }
 
+.nav-left {
+  justify-content: flex-start;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
+
+/* Centered Logo */
+.logo-link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.8;
+}
+
+.nav-logo {
+  display: block;
+}
+
+/* Nav Links */
 .nav-link {
   color: var(--accent-blue);
   font-family: 'Merriweather Sans', sans-serif;
@@ -80,6 +145,7 @@ function closeMobileMenu() {
   text-decoration: none;
   position: relative;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-link::after {
@@ -108,9 +174,15 @@ function closeMobileMenu() {
   user-select: none;
 }
 
+/* Mobile Header */
+.mobile-header {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* Mobile Menu Button */
 .mobile-menu-btn {
-  display: none;
   background: none;
   border: none;
   cursor: pointer;
@@ -159,9 +231,20 @@ function closeMobileMenu() {
   bottom: 0;
 }
 
+/* Mobile Logo */
+.mobile-logo-link {
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-logo-link:hover {
+  opacity: 0.8;
+}
+
 /* Mobile Navigation */
 .mobile-nav {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 1rem 0;
@@ -176,19 +259,21 @@ function closeMobileMenu() {
   letter-spacing: 0.5px;
   text-transform: uppercase;
   padding: 0.5rem 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .nav {
+.mobile-nav-link:hover {
+  color: var(--text-primary);
+}
+
+/* Responsive - Switch to mobile layout at 1024px to prevent text overlap */
+@media (max-width: 1024px) {
+  .nav-container {
     display: none;
   }
 
-  .mobile-menu-btn {
-    display: block;
-  }
-
-  .mobile-nav {
+  .mobile-header {
     display: flex;
   }
 }
