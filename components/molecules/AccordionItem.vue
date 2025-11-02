@@ -25,8 +25,10 @@ function toggleAccordion() {
       <span class="question">{{ question }}</span>
       <span class="icon" :class="{ open: isOpen }">+</span>
     </button>
-    <div v-if="isOpen" class="accordion-content">
-      <p class="answer">{{ answer }}</p>
+    <div class="accordion-content" :class="{ open: isOpen }">
+      <div class="accordion-inner">
+        <p class="answer">{{ answer }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -79,26 +81,26 @@ function toggleAccordion() {
 }
 
 .accordion-content {
+  max-height: 0;
   overflow: hidden;
-  animation: slideDown 0.3s ease-out;
+  transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.accordion-content.open {
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height 0.4s ease-in, opacity 0.3s ease-in;
+}
+
+.accordion-inner {
+  padding: 0 0 1.5rem 0;
 }
 
 .answer {
   color: var(--text-primary);
   font-size: 1.125rem;
   line-height: 1.8;
-  padding: 0 0 1.5rem 0;
   margin: 0;
 }
 </style>
