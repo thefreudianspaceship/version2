@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: 'How can I get involved?',
-    answer: 'The podcast (Conversations about concepts) and blog pieces form the textual and audio space for the thoughts and practices we are working with.  It\'s an attempt to give them some space, as is needed for any body. We began developing the website as a way to think the body.  Our work on Breath was and is part of a triangulation of breath, body and earth.  There are only limited episodes of the podcast, think of them more as an hour of conversation about a concept, an idea that you can listen to people talking about.  Alongside this there is an overview text of the concept and then, further in and if you\'re interested, there is the use of that concept within the research work.  The idea is to generate connections.'
+    answer: 'The podcast (Conversations about concepts) and blog pieces serve as a textual and audio assemblage for the thoughts and practices we are working with.  \n\nIt\'s an attempt to give those thoughts and practices some space, as is needed for any body. We began developing the website as a way to think the body.  Our work on Breath was and is part of a triangulation of breath, body and earth.  \n\nThere are only limited episodes of the podcast, think of them more as an hour of conversation about a concept, an idea that you can listen to people talking about.  Alongside this there is an overview text of the concept and then, further in and if you\'re interested, there is the use of that concept within the research work.  The idea is to generate connections.'
   }
 ]
 </script>
