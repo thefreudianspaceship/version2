@@ -10,6 +10,7 @@ const showHeader = computed(() => route.path === '/')
 
 <template>
   <div id="app">
+    <div id="top"></div>
     <NuxtRouteAnnouncer />
     <Nav />
     <Header v-if="showHeader" />

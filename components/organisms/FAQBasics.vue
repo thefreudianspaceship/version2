@@ -1,6 +1,7 @@
 <script setup>
 import PlainText from '../atoms/PlainText.vue'
 import AccordionItem from '../molecules/AccordionItem.vue'
+import SpaceshipHero from './SpaceshipHero.vue';
 
 const faqs = [
   {
@@ -14,6 +15,10 @@ const faqs = [
   {
     question: 'How does this website work?',
     answer: 'Originally built on WordPress we noticed we were limited in what we could do. Some conversations with colleagues touched on alternative visions and multiple paths that we wanted to explore. So a while later, and after working with servers and code and much playing with claude, we moved through Hugo and into Vue and Nuxt via p5.js for fun. So that\'s how the website works, and it means we might be a bit more flexible now - so alternative modes are potentially more viable.'
+  },
+  {
+    question: 'How can I get involved?',
+    answer: 'The podcast (Conversations about concepts) and blog pieces form the textual and audio space for the thoughts and practices we are working with.  It\'s an attempt to give them some space, as is needed for any body. We began developing the website as a way to think the body.  Our work on Breath was and is part of a triangulation of breath, body and earth.  There are only limited episodes of the podcast, think of them more as an hour of conversation about a concept, an idea that you can listen to people talking about.  Alongside this there is an overview text of the concept and then, further in and if you\'re interested, there is the use of that concept within the research work.  The idea is to generate connections.'
   }
 ]
 </script>
