@@ -8,7 +8,7 @@ const allPosts = [
     title: 'Schizoanalysis and Decolonial Thought',
     description: 'Exploring the intersections between Deleuze and Guattari\'s schizoanalysis and Frantz Fanon\'s decolonial philosophy.',
     date: '2025-01-15',
-    image: '/placeholder-post-1.jpg',
+    image: '/deleuze 407x495.png',
     tags: ['featured', 'research', 'philosophy']
   },
   {
@@ -16,7 +16,7 @@ const allPosts = [
     title: 'Towards a New Earth: Practice and Experimentation',
     description: 'How can we develop new modes of thinking and being that break free from colonial and capitalist subjectivities?',
     date: '2025-01-10',
-    image: '/placeholder-post-2.jpg',
+    image: '/Fanon 407x495.png',
     tags: ['featured', 'practice']
   },
   {
@@ -24,7 +24,7 @@ const allPosts = [
     title: 'The Role of Psychoanalysis in Revolutionary Thought',
     description: 'Examining how psychoanalytic concepts can inform radical political and social transformation.',
     date: '2025-01-05',
-    image: '/placeholder-post-3.jpg',
+    image: '/Sigmund_Freud,_by_Max_Halberstadt_(cropped).jpg',
     tags: ['featured', 'psychoanalysis', 'revolution']
   },
   {

@@ -79,6 +79,7 @@ function formatDate(dateString) {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top; /* Focus on top of image for portrait photos */
   transition: transform 0.3s ease;
 }
 
@@ -87,7 +88,7 @@ function formatDate(dateString) {
 }
 
 .post-content {
-  padding: 1.5rem;
+  padding: 2rem 1.5rem 1.5rem; /* Increased top padding to prevent text clipping */
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -99,6 +100,13 @@ function formatDate(dateString) {
   font-weight: 600;
   margin-bottom: 0.5rem;
   line-height: 1.3;
+  transition: transform 0.3s ease, color 0.3s ease;
+  transform-origin: left top; /* Anchor expansion from top-left to prevent clipping */
+}
+
+.post-card:hover .post-title {
+  transform: scale(1.02); /* Subtle 2% text expansion on hover */
+  color: var(--accent-teal); /* Color shift on hover */
 }
 
 .post-meta {
