@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: master
+
+# Optional: Enable editorial workflow for draft/review/publish
+# publish_mode: editorial_workflow
+
+# Media files configuration
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# Collections define the structure of content
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        allow_add: true
+        default: []
+        hint: "Add tags (e.g., featured, research, philosophy)"
+      - { label: "Body", name: "body", widget: "markdown" }
