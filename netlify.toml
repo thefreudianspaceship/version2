@@ -8,17 +8,12 @@
   # Node version
   environment = { NODE_VERSION = "20" }
 
-# Don't redirect .netlify identity paths
-[[redirects]]
-  from = "/.netlify/*"
-  to = "/.netlify/:splat"
-  status = 200
-
-# Redirect rules for SPA fallback
+# SPA fallback - Netlify automatically handles /.netlify/* paths
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
 
 # Headers for security and caching
 [[headers]]
