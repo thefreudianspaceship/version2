@@ -1,46 +1,35 @@
 <script setup>
+import { computed } from 'vue'
 import PostCard from '../molecules/PostCard.vue'
 
-// Sample blog posts data (in real app, this would come from a CMS or API)
-const allPosts = [
-  {
-    slug: 'post-1',
-    title: 'Schizoanalysis and Decolonial Thought',
-    description: 'Exploring the intersections between Deleuze and Guattari\'s schizoanalysis and Frantz Fanon\'s decolonial philosophy.',
-    date: '2025-01-15',
-    image: '/deleuze 407x495.png',
-    tags: ['featured', 'research', 'philosophy']
-  },
-  {
-    slug: 'post-2',
-    title: 'Towards a New Earth: Practice and Experimentation',
-    description: 'How can we develop new modes of thinking and being that break free from colonial and capitalist subjectivities?',
-    date: '2025-01-10',
-    image: '/Fanon 407x495.png',
-    tags: ['featured', 'practice']
-  },
-  {
-    slug: 'post-3',
-    title: 'The Role of Psychoanalysis in Revolutionary Thought',
-    description: 'Examining how psychoanalytic concepts can inform radical political and social transformation.',
-    date: '2025-01-05',
-    image: '/Sigmund_Freud,_by_Max_Halberstadt_(cropped).jpg',
-    tags: ['featured', 'psychoanalysis', 'revolution']
-  },
-  {
-    slug: 'post-4',
-    title: 'Another Featured Post',
-    description: 'This is another featured post to demonstrate filtering.',
-    date: '2024-12-20',
-    image: '/placeholder-post-4.jpg',
-    tags: ['featured']
+// Query Nuxt Content for all blog posts
+const { data: allPosts } = await useAsyncData('featured-posts', async () => {
+  try {
+    const posts = await queryCollection('blog').all()
+    // Sort by date descending
+    return posts.sort((a, b) => new Date(b.meta?.date || 0).getTime() - new Date(a.meta?.date || 0).getTime())
+  } catch (error) {
+    console.error('Error fetching posts:', error)
+    return []
   }
-]
+})
 
-// Filter posts with 'featured' tag and limit to 3
-const featuredPosts = allPosts
-  .filter(post => post.tags.includes('featured'))
-  .slice(0, 3)
+// Filter for featured posts and transform data to match PostCard props
+const featuredPosts = computed(() => {
+  const posts = allPosts.value || []
+
+  return posts
+    .filter(post => post.meta?.tags?.includes('featured'))
+    .slice(0, 3)
+    .map(post => ({
+      slug: post.path?.replace('/blog/', '') || '',
+      title: post.title,
+      description: post.description,
+      date: post.meta?.date,
+      image: post.meta?.image,
+      tags: post.meta?.tags
+    }))
+})
 </script>
 
 <template>

@@ -1,66 +1,25 @@
 <script setup>
-import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import Tag from '../../components/atoms/Tag.vue'
 
 const route = useRoute()
 
-// Sample blog posts data (in real app, this would come from a CMS or API)
-const blogPosts = {
-  'post-1': {
-    slug: 'post-1',
-    title: 'Schizoanalysis and Decolonial Thought',
-    description: 'Exploring the intersections between Deleuze and Guattari\'s schizoanalysis and Frantz Fanon\'s decolonial philosophy.',
-    date: '2025-01-15',
-    author: 'Eric Harper',
-    image: '/placeholder-post-1.jpg',
-    tags: ['featured', 'research', 'philosophy'],
-    content: `
-      <p>This is the full content of the blog post. In a real implementation, this would come from a CMS or markdown file.</p>
+// Query Nuxt Content for the current blog post
+const { data: currentPost } = await useAsyncData(`blog-${route.params.slug}`, async () => {
+  const posts = await queryCollection('blog').all()
+  const post = posts.find(post => post.path === `/blog/${route.params.slug}`)
 
-      <h2>Introduction</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-      <h2>Main Argument</h2>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-      <h2>Conclusion</h2>
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    `
-  },
-  'post-2': {
-    slug: 'post-2',
-    title: 'Towards a New Earth: Practice and Experimentation',
-    description: 'How can we develop new modes of thinking and being that break free from colonial and capitalist subjectivities?',
-    date: '2025-01-10',
-    author: 'Matt Lee',
-    image: '/placeholder-post-2.jpg',
-    tags: ['featured', 'practice'],
-    content: `
-      <p>Sample content for post 2.</p>
-      <h2>Section One</h2>
-      <p>Content here...</p>
-    `
-  },
-  'post-3': {
-    slug: 'post-3',
-    title: 'The Role of Psychoanalysis in Revolutionary Thought',
-    description: 'Examining how psychoanalytic concepts can inform radical political and social transformation.',
-    date: '2025-01-05',
-    author: 'Eric Harper & Matt Lee',
-    image: '/placeholder-post-3.jpg',
-    tags: ['featured', 'psychoanalysis', 'revolution'],
-    content: `
-      <p>Sample content for post 3.</p>
-      <h2>Revolutionary Concepts</h2>
-      <p>Content here...</p>
-    `
+  // Transform post to match expected structure
+  if (post) {
+    return {
+      ...post,
+      author: post.meta?.author,
+      date: post.meta?.date,
+      image: post.meta?.image,
+      tags: post.meta?.tags
+    }
   }
-}
-
-// Get the current post based on the route slug
-const currentPost = computed(() => {
-  return blogPosts[route.params.slug] || null
+  return null
 })
 
 // Format date for display
@@ -107,7 +66,9 @@ function formatDate(dateString) {
 
     <!-- Post Content -->
     <div class="post-content-wrapper">
-      <div class="post-content" v-html="currentPost.content"></div>
+      <div class="post-content">
+        <ContentRenderer :value="currentPost" />
+      </div>
     </div>
   </article>
 
