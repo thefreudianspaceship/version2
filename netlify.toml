@@ -2,8 +2,8 @@
   # Nuxt 4 build command
   command = "npm run build"
 
-  # Nuxt output directory
-  publish = ".output/public"
+  # For Netlify preset, static assets go to dist
+  publish = "dist"
 
   # Node version
   environment = { NODE_VERSION = "20" }
