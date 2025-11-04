@@ -102,5 +102,6 @@ function toggleAccordion() {
   font-size: 1.125rem;
   line-height: 1.8;
   margin: 0;
+  white-space: pre-line; /* Preserves \n line breaks */
 }
 </style>
