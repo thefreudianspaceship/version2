@@ -7,7 +7,7 @@ const { data: allPosts } = await useAsyncData('featured-posts', async () => {
   try {
     const posts = await queryCollection('blog').all()
     // Sort by date descending
-    return posts.sort((a, b) => new Date(b.meta?.date || 0).getTime() - new Date(a.meta?.date || 0).getTime())
+    return posts.sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime())
   } catch (error) {
     console.error('Error fetching posts:', error)
     return []
@@ -22,7 +22,7 @@ const featuredPosts = computed(() => {
     .filter(post => post.meta?.tags?.includes('featured'))
     .slice(0, 3)
     .map(post => ({
-      slug: post.path?.replace('/blog/', '') || '',
+      slug: post.path?.replace('/blog/', '') || post._id, // Extract slug from path
       title: post.title,
       description: post.description,
       date: post.meta?.date,

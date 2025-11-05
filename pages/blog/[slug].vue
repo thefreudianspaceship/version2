@@ -1,26 +1,23 @@
 <script setup>
-import { useRoute } from 'vue-router'
 import Tag from '../../components/atoms/Tag.vue'
 
 const route = useRoute()
+const slug = route.params.slug
 
-// Query Nuxt Content for the current blog post
-const { data: currentPost } = await useAsyncData(`blog-${route.params.slug}`, async () => {
+// Fetch the blog post by slug
+const { data: currentPost } = await useAsyncData(`blog-${slug}`, async () => {
   const posts = await queryCollection('blog').all()
-  const post = posts.find(post => post.path === `/blog/${route.params.slug}`)
-
-  // Transform post to match expected structure
-  if (post) {
-    return {
-      ...post,
-      author: post.meta?.author,
-      date: post.meta?.date,
-      image: post.meta?.image,
-      tags: post.meta?.tags
-    }
-  }
-  return null
+  // Match against path (format is "/blog/slug-name")
+  return posts.find(post => {
+    const postSlug = post.path?.replace('/blog/', '') || post._id
+    return postSlug === slug
+  })
 })
+
+// Handle post not found
+if (!currentPost.value) {
+  throw createError({ statusCode: 404, message: 'Post not found' })
+}
 
 // Format date for display
 function formatDate(dateString) {
@@ -31,6 +28,18 @@ function formatDate(dateString) {
     day: 'numeric',
   })
 }
+
+// Set page metadata
+useHead({
+  title: currentPost.value.title,
+  meta: [
+    { name: 'description', content: currentPost.value.description },
+    { property: 'og:title', content: currentPost.value.title },
+    { property: 'og:description', content: currentPost.value.description },
+    { property: 'og:image', content: currentPost.value.image },
+    { property: 'og:type', content: 'article' },
+  ]
+})
 </script>
 
 <template>
