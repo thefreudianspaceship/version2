@@ -24,6 +24,12 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;600;700&family=Bebas+Neue&display=swap' },
       ],
+      script: [
+        // Netlify Identity Widget for authentication
+        { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js', defer: true },
+        // Identity redirect handler
+        { src: '/identity-redirect.js', defer: true },
+      ],
     },
   },
 
