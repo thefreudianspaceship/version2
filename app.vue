@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import Nav from './components/molecules/Nav.vue'
 import Header from './components/organisms/Header.vue'
+import Footer from './components/organisms/Footer.vue'
 
 const route = useRoute()
 const showHeader = computed(() => route.path === '/')
@@ -17,6 +18,7 @@ const showHeader = computed(() => route.path === '/')
     <main>
       <NuxtPage />
     </main>
+    <Footer />
   </div>
 </template>
 
