@@ -1,10 +1,13 @@
 ---
-title: 'The Role of Psychoanalysis in Revolutionary Thought'
-description: 'Examining how psychoanalytic concepts can inform radical political and social transformation.'
-date: '2025-01-05'
-author: 'Eric Harper'
-image: '/Sigmund_Freud,_by_Max_Halberstadt_(cropped).jpg'
-tags: ['featured', 'psychoanalysis', 'revolution']
+title: The Role of Psychoanalysis in Revolutionary Thought
+description: Examining how psychoanalytic concepts can inform radical political
+  and social transformation.
+date: 2025-01-05
+author: Eric Harper
+image: /Sigmund_Freud,_by_Max_Halberstadt_(cropped).jpg
+tags:
+  - psychoanalysis
+  - revolution
 ---
 
 # The Role of Psychoanalysis in Revolutionary Thought
