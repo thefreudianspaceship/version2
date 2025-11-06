@@ -37,6 +37,7 @@ Thinkers like Wilhelm Reich, Frantz Fanon, and Gilles Deleuze have productively 
 ## Toward Revolutionary Psychoanalysis
 
 A revolutionary psychoanalysis would:
+
 - Analyze how oppression operates psychically
 - Develop practices for collective liberation
 - Transform desire rather than simply redirecting it
